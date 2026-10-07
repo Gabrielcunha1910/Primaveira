@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cidades</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous"
+    >
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">ClimaTema</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="cidades.html">Cidades</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="climas.html">Climas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cadastro.html">Cadastro</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar"/>
+        <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<main class="container pagina-cidades my-4">
+  <h1 class="text-center mb-2">Conheça as cidades</h1>
+  <p class="text-center text-muted mb-4">Use as setas ou escolha uma cidade para ver as informações.</p>
+
+  <div id="carrosselCidades" class="carousel slide" data-bs-interval="false">
+    <div class="carousel-inner">
+      <section class="carousel-item active">
+        <div class="cabecalho-cidade">
+          <h2>Americana</h2>
+          <p>Uma cidade com parques, espaços culturais e áreas verdes para visitar.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-12 col-lg-6">
+            <h3 class="titulo-secao-cidade">Pontos turísticos e atrações</h3>
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Zoo de Americana:</strong> parque com animais e atividades para a família.</li>
+              <li class="list-group-item"><strong>Jardim Botânico:</strong> área verde com plantas e trilhas para caminhada.</li>
+              <li class="list-group-item"><strong>Basílica de Santo Antônio:</strong> igreja tradicional no centro da cidade.</li>
+              <li class="list-group-item"><strong>Praça Comendador Müller:</strong> praça central próxima a importantes construções históricas.</li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-6">
+            <h3 class="titulo-secao-cidade">Mapa</h3>
+            <a class="btn btn-outline-primary" href="https://www.google.com/maps/search/?api=1&query=Americana%2C%20SP" target="_blank" rel="noopener noreferrer">Ver Americana no Google Maps</a>
+          </div>
+          <div class="col-12">
+            <h3 class="titulo-secao-cidade">Galeria de fotos</h3>
+            <div class="row g-3 galeria-cidade">
+              <div class="col-12 col-sm-6"><img src="img/Praça.jpg" alt="Praça em Americana" loading="lazy"></div>
+              <div class="col-12 col-sm-6"><img src="img/Zoo.jpg" alt="Zoo de Americana" loading="lazy"></div>
+              <div class="col-12 col-sm-6"><img src="img/botanico-1.jpg" alt="Jardim Botânico Municipal" loading="lazy"></div>
+              <div class="col-12 col-sm-6"><img src="img/basilica-7.jpg" alt="Basílica de Santo Antônio" loading="lazy"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="carousel-item">
+        <div class="cabecalho-cidade">
+          <h2>Campinas</h2>
+          <p>Conhecida por seus parques, cultura e construções históricas.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-12 col-lg-6">
+            <h3 class="titulo-secao-cidade">Pontos turísticos e atrações</h3>
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Lagoa do Taquaral:</strong> parque com lago, áreas para caminhada e lazer.</li>
+              <li class="list-group-item"><strong>Bosque dos Jequitibás:</strong> parque urbano com área verde e espaços de visitação.</li>
+              <li class="list-group-item"><strong>Estação Cultura:</strong> antiga estação ferroviária que recebe eventos culturais.</li>
+              <li class="list-group-item"><strong>Praça Carlos Gomes:</strong> praça arborizada na região central.</li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-6">
+            <h3 class="titulo-secao-cidade">Mapa</h3>
+            <a class="btn btn-outline-primary" href="https://www.google.com/maps/search/?api=1&query=Campinas%2C%20SP" target="_blank" rel="noopener noreferrer">Ver Campinas no Google Maps</a>
+          </div>
+          <div class="col-12">
+            <h3 class="titulo-secao-cidade">Galeria de fotos</h3>
+            <div class="row g-3 galeria-cidade">
+              <div class="col-12 col-sm-6"><img src="img/Campinas.jpg" alt="Vista de Campinas" loading="lazy"></div>
+              <div class="col-12 col-sm-6"><img src="img/Estação_ferroviária_-_centro_cultural_de_Campinas_001.jpg" alt="Estação Cultura de Campinas" loading="lazy"></div>
+              <div class="col-12 col-sm-6"><img src="img/Praça_Carlos_Gomes_-_Campinas_-_SP.jpg" alt="Praça Carlos Gomes em Campinas" loading="lazy"></div>
+              <div class="col-12 col-sm-6"><img src="img/Bosque.jpg" alt="Bosque dos Jequitibás em Campinas" loading="lazy"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="carousel-item">
+        <div class="cabecalho-cidade">
+          <h2>Piracicaba</h2>
+          <p>A cidade reúne paisagens do rio, história e espaços de convivência.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-12 col-lg-6">
+            <h3 class="titulo-secao-cidade">Pontos turísticos e atrações</h3>
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Rua do Porto:</strong> região à beira-rio com restaurantes e opções de passeio.</li>
+              <li class="list-group-item"><strong>Engenho Central:</strong> antigo complexo industrial que hoje recebe eventos culturais.</li>
+              <li class="list-group-item"><strong>Elevador Turístico:</strong> oferece uma vista do Rio Piracicaba e da cidade.</li>
+              <li class="list-group-item"><strong>Praça José Bonifácio:</strong> praça central próxima à Catedral de Santo Antônio.</li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-6">
+            <h3 class="titulo-secao-cidade">Mapa</h3>
+            <a class="btn btn-outline-primary" href="https://www.google.com/maps/search/?api=1&query=Piracicaba%2C%20SP" target="_blank" rel="noopener noreferrer">Ver Piracicaba no Google Maps</a>
+          </div>
+          <div class="col-12">
+            <h3 class="titulo-secao-cidade">Galeria de fotos</h3>
+            <div class="row g-3 galeria-cidade">
+              <div class="col-12 col-sm-6"><img src="img/Piracicaba.jpg" alt="Vista de Piracicaba" loading="lazy"></div>
+              <div class="col-12 col-sm-6"><img src="img/Elevador.jpg" alt="Elevador turístico de Piracicaba" loading="lazy"></div>
+              <div class="col-12 col-sm-6"><img src="img/engenho.jpg" alt="Engenho Central de Piracicaba" loading="lazy"></div>
+              <div class="col-12 col-sm-6"><img src="img/praca-jose-bonifacio-raimundo_rosa_9195-copia.jpg" alt="Praça José Bonifácio em Piracicaba" loading="lazy"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="carousel-item">
+        <div class="cabecalho-cidade">
+          <h2>Santa Bárbara d'Oeste</h2>
+          <p>Uma cidade do interior com parques, praças e locais históricos.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-12 col-lg-6">
+            <h3 class="titulo-secao-cidade">Pontos turísticos e atrações</h3>
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Usina Santa Bárbara:</strong> espaço histórico ligado ao desenvolvimento da cidade.</li>
+              <li class="list-group-item"><strong>Parque dos Ipês:</strong> área verde com espaços para lazer e caminhada.</li>
+              <li class="list-group-item"><strong>Centro de Memórias:</strong> acervo e exposições sobre a história local.</li>
+              <li class="list-group-item"><strong>Praça Central:</strong> espaço público junto à Igreja Matriz de Santa Bárbara.</li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-6">
+            <h3 class="titulo-secao-cidade">Mapa</h3>
+            <a class="btn btn-outline-primary" href="https://www.google.com/maps/search/?api=1&query=Santa%20B%C3%A1rbara%20d%27Oeste%2C%20SP" target="_blank" rel="noopener noreferrer">Ver Santa Bárbara d'Oeste no Google Maps</a>
+          </div>
+          <div class="col-12">
+            <h3 class="titulo-secao-cidade">Galeria de fotos</h3>
+            <div class="row g-3 galeria-cidade">
+              <div class="col-12 col-sm-6"><img src="img/Santa Barbabara.png" alt="Vista de Santa Bárbara d'Oeste" loading="lazy"></div>
+              <div class="col-12 col-sm-6"><img src="img/Centro de memorias.avif" alt="Centro de Memórias de Santa Bárbara d'Oeste" loading="lazy"></div>
+              <div class="col-12 col-sm-6"><img src="img/portal dos ipes.avif" alt="Portal dos Ipês em Santa Bárbara d'Oeste" loading="lazy"></div>
+              <div class="col-12 col-sm-6"><img src="img/estrutura-rock-fest-01-imprensa.jpg" alt="Estrutura do Rock Fest em Santa Bárbara d'Oeste" loading="lazy"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="carousel-item">
+        <div class="cabecalho-cidade">
+          <h2>Nova Odessa</h2>
+          <p>Uma cidade tranquila, com parques e espaços para conhecer a natureza.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-12 col-lg-6">
+            <h3 class="titulo-secao-cidade">Pontos turísticos e atrações</h3>
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Jardim Botânico Plantarum:</strong> jardim com coleções de plantas e trilhas para visitação.</li>
+              <li class="list-group-item"><strong>Parque Ecológico Isidoro Bordon:</strong> parque municipal com área verde e animais.</li>
+              <li class="list-group-item"><strong>Teatro Municipal:</strong> espaço que recebe apresentações e eventos da cidade.</li>
+              <li class="list-group-item"><strong>Praça Central José Gazzetta:</strong> praça de convivência no centro de Nova Odessa.</li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-6">
+            <h3 class="titulo-secao-cidade">Mapa</h3>
+            <a class="btn btn-outline-primary" href="https://www.google.com/maps/search/?api=1&query=Nova%20Odessa%2C%20SP" target="_blank" rel="noopener noreferrer">Ver Nova Odessa no Google Maps</a>
+          </div>
+          <div class="col-12">
+            <h3 class="titulo-secao-cidade">Galeria de fotos</h3>
+            <div class="row g-3 galeria-cidade">
+              <div class="col-12 col-sm-6"><img src="img/nova odessa.webp" alt="Vista de Nova Odessa" loading="lazy"></div>
+              <div class="col-12 col-sm-6"><img src="img/zoologico nova odessa.jpeg" alt="Vista de Nova Odessa" loading="lazy"></div>
+              <div class="col-12 col-sm-6"><img src="img/teatro nova odessa.jpeg" alt="Vista de Nova Odessa" loading="lazy"></div>
+              <div class="col-12 col-sm-6"><img src="img/lago-jardim-botanico-plantarum-nova-odessa-vempraver-feufa-maciel.png" alt="Vista de Nova Odessa" loading="lazy"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="navegacao-cidades">
+      <button class="btn btn-outline-primary" type="button" data-bs-target="#carrosselCidades" data-bs-slide="prev">Cidade anterior</button>
+      <div class="botoes-cidades carousel-indicators" aria-label="Escolher cidade">
+        <button type="button" class="active" data-bs-target="#carrosselCidades" data-bs-slide-to="0" aria-label="Americana" aria-current="true">Americana</button>
+        <button type="button" data-bs-target="#carrosselCidades" data-bs-slide-to="1" aria-label="Campinas">Campinas</button>
+        <button type="button" data-bs-target="#carrosselCidades" data-bs-slide-to="2" aria-label="Piracicaba">Piracicaba</button>
+        <button type="button" data-bs-target="#carrosselCidades" data-bs-slide-to="3" aria-label="Santa Bárbara d'Oeste">Santa Bárbara</button>
+        <button type="button" data-bs-target="#carrosselCidades" data-bs-slide-to="4" aria-label="Nova Odessa">Nova Odessa</button>
+      </div>
+      <button class="btn btn-outline-primary" type="button" data-bs-target="#carrosselCidades" data-bs-slide="next">Próxima cidade</button>
+    </div>
+  </div>
+</main>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+></script>
+</body>
+</html>
