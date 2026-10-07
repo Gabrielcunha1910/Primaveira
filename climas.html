@@ -41,16 +41,16 @@
 
 <main class="container my-4">
   <h1 class="text-center">Previsão do tempo</h1>
-  <p class="text-center text-muted mb-4">Previsão de hoje com temperaturas máxima e mínima </p>
+  <p class="text-center text-muted mb-4">Temperaturas atuais estimadas e previsão de hoje.</p>
 
   <div class="row g-4">
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card h-100">
         <div class="card-body">
           <h2 class="h4 card-title">Americana</h2>
-          <p class="mb-1">Hoje: Sol entre nuvens</p>
-          <p class="mb-1">Máxima: 28 °C</p>
-          <p class="mb-0">Mínima: 18 °C</p>
+          <div class="clima-dados" data-cidade="Americana" data-latitude="-22.7372" data-longitude="-47.3331" aria-live="polite">
+            <p class="mb-0">Carregando clima...</p>
+          </div>
         </div>
       </div>
     </div>
@@ -59,9 +59,9 @@
       <div class="card h-100">
         <div class="card-body">
           <h2 class="h4 card-title">Campinas</h2>
-          <p class="mb-1">Hoje: Parcialmente nublado</p>
-          <p class="mb-1">Máxima: 27 °C</p>
-          <p class="mb-0">Mínima: 17 °C</p>
+          <div class="clima-dados" data-cidade="Campinas" data-latitude="-22.9056" data-longitude="-47.0608" aria-live="polite">
+            <p class="mb-0">Carregando clima...</p>
+          </div>
         </div>
       </div>
     </div>
@@ -70,9 +70,9 @@
       <div class="card h-100">
         <div class="card-body">
           <h2 class="h4 card-title">Piracicaba</h2>
-          <p class="mb-1">Hoje: Sol</p>
-          <p class="mb-1">Máxima: 29 °C</p>
-          <p class="mb-0">Mínima: 19 °C</p>
+          <div class="clima-dados" data-cidade="Piracicaba" data-latitude="-22.7253" data-longitude="-47.6492" aria-live="polite">
+            <p class="mb-0">Carregando clima...</p>
+          </div>
         </div>
       </div>
     </div>
@@ -81,9 +81,9 @@
       <div class="card h-100">
         <div class="card-body">
           <h2 class="h4 card-title">Santa Bárbara d'Oeste</h2>
-          <p class="mb-1">Hoje: Sol entre nuvens</p>
-          <p class="mb-1">Máxima: 28 °C</p>
-          <p class="mb-0">Mínima: 18 °C</p>
+          <div class="clima-dados" data-cidade="Santa Bárbara d'Oeste" data-latitude="-22.7553" data-longitude="-47.4144" aria-live="polite">
+            <p class="mb-0">Carregando clima...</p>
+          </div>
         </div>
       </div>
     </div>
@@ -92,13 +92,106 @@
       <div class="card h-100">
         <div class="card-body">
           <h2 class="h4 card-title">Nova Odessa</h2>
-          <p class="mb-1">Hoje: Parcialmente nublado</p>
-          <p class="mb-1">Máxima: 28 °C</p>
-          <p class="mb-0">Mínima: 18 °C</p>
+          <div class="clima-dados" data-cidade="Nova Odessa" data-latitude="-22.7775" data-longitude="-47.2958" aria-live="polite">
+            <p class="mb-0">Carregando clima...</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <p id="clima-atualizado" class="text-center text-muted mt-4 mb-0" aria-live="polite"></p>
+  <p class="text-center text-muted mt-2 mb-0">Fonte: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>. São estimativas de modelos meteorológicos e podem diferir das condições observadas no local.</p>
 </main>
+<script>
+  const descricoesClima = {
+    0: "Céu limpo",
+    1: "Predominantemente limpo",
+    2: "Parcialmente nublado",  
+    3: "Nublado",
+    45: "Neblina",
+    48: "Neblina com geada",
+    51: "Garoa fraca",
+    53: "Garoa moderada",
+    55: "Garoa intensa",
+    56: "Garoa congelante fraca",
+    57: "Garoa congelante intensa",
+    61: "Chuva fraca",
+    63: "Chuva moderada",
+    65: "Chuva intensa",
+    66: "Chuva congelante fraca",
+    67: "Chuva congelante intensa",
+    71: "Neve fraca",
+    73: "Neve moderada",
+    75: "Neve intensa",
+    77: "Grãos de neve",
+    80: "Pancadas de chuva fracas",
+    81: "Pancadas de chuva moderadas",
+    82: "Pancadas de chuva intensas",
+    85: "Pancadas de neve fracas",
+    86: "Pancadas de neve intensas",
+    95: "Trovoada",
+    96: "Trovoada com granizo fraco",
+    99: "Trovoada com granizo intenso"
+  };
+
+  function formatarTemperatura(temperatura) {
+    return `${Math.round(temperatura)} °C`;
+  }
+
+  async function carregarClima(card) {
+    const latitude = card.dataset.latitude;
+    const longitude = card.dataset.longitude;
+    const parametros = new URLSearchParams({
+      latitude,
+      longitude,
+      current: "temperature_2m,apparent_temperature,weather_code",
+      daily: "weather_code,temperature_2m_max,temperature_2m_min",
+      timezone: "America/Sao_Paulo"
+    });
+
+    const resposta = await fetch(`https://api.open-meteo.com/v1/forecast?${parametros}`, { cache: "no-store" });
+    if (!resposta.ok) {
+      throw new Error(`A API respondeu com o status ${resposta.status}.`);
+    }
+
+    const dados = await resposta.json();
+    const descricao = descricoesClima[dados.current.weather_code] || "Condição não disponível";
+    const atualizadoEm = new Date(dados.current.time).toLocaleTimeString("pt-BR", {
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+
+    card.innerHTML = `
+      <p class="mb-1">Temperatura atual: ${formatarTemperatura(dados.current.temperature_2m)}</p>
+      <p class="mb-1">Sensação: ${formatarTemperatura(dados.current.apparent_temperature)}</p>
+      <p class="mb-1">Máxima: ${formatarTemperatura(dados.daily.temperature_2m_max[0])}</p>
+      <p class="mb-1">Mínima: ${formatarTemperatura(dados.daily.temperature_2m_min[0])}</p>
+      <small class="text-muted">Horário dos dados: ${atualizadoEm}</small>
+    `;
+  }
+
+  async function atualizarClimas() {
+    const cards = document.querySelectorAll(".clima-dados");
+    const resultados = await Promise.allSettled(Array.from(cards, carregarClima));
+    let falhas = 0;
+
+    resultados.forEach((resultado, indice) => {
+      if (resultado.status === "rejected") {
+        falhas += 1;
+        const cidade = cards[indice].dataset.cidade;
+        cards[indice].innerHTML = `<p class="mb-0 text-danger">Não foi possível carregar o clima de ${cidade}. Tente novamente mais tarde.</p>`;
+        console.error(`Falha ao carregar o clima de ${cidade}:`, resultado.reason);
+      }
+    });
+
+    const avisoAtualizacao = document.getElementById("clima-atualizado");
+    avisoAtualizacao.textContent = falhas === cards.length
+      ? "Não foi possível atualizar os dados. Verifique sua conexão."
+      : `Página atualizada em ${new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}${falhas ? `; ${falhas} cidade(s) indisponível(is).` : "."}`;
+  }
+
+  atualizarClimas();
+  window.setInterval(atualizarClimas, 10 * 60 * 1000);
+</script>
 </body>
 </html>

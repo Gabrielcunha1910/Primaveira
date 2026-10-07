@@ -41,37 +41,80 @@
 
 <main class="container my-5">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-8 col-lg-6">
-      <h1 class="text-center mb-4">Cadastre-se</h1>
+    <div class="col-12 col-lg-8">
+      <h1 class="text-center mb-2">Cadastre-se</h1>
+      <p class="text-center text-muted mb-4">Preencha seus dados pessoais e escolha quais informações deseja receber.</p>
 
       <div id="mensagemSucesso" class="alert alert-success d-none" role="alert">
-        Cadastrado com sucesso!
+        Cadastro concluído para demonstração. Este site ainda não salva nem envia os dados.
       </div>
 
       <form onsubmit="event.preventDefault(); document.getElementById('mensagemSucesso').classList.remove('d-none'); this.reset()">
-        <div class="mb-3">
-          <label for="nomeCompleto" class="form-label">Nome completo</label>
-          <input type="text" class="form-control" id="nomeCompleto" name="nome" autocomplete="name" required>
-        </div>
+        <fieldset class="border rounded p-3 p-md-4 mb-4">
+          <legend class="float-none w-auto px-2 fs-5">Seus dados</legend>
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label for="nomeCompleto" class="form-label">Nome completo</label>
+              <input type="text" class="form-control" id="nomeCompleto" name="nome" autocomplete="name" required>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="email" class="form-label">E-mail</label>
+              <input type="email" class="form-control" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="telefone" class="form-label">Telefone</label>
+              <input type="tel" class="form-control" id="telefone" name="telefone" autocomplete="tel" inputmode="tel" placeholder="(00) 00000-0000">
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="dataNascimento" class="form-label">Data de nascimento</label>
+              <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" autocomplete="bday">
+            </div>
+            <div class="col-12">
+              <label for="cidadeInteresse" class="form-label">Cidade de interesse</label>
+              <select class="form-select" id="cidadeInteresse" name="cidade" required>
+                <option value="" selected disabled>Escolha uma cidade</option>
+                <option value="Americana">Americana</option>
+                <option value="Campinas">Campinas</option>
+                <option value="Piracicaba">Piracicaba</option>
+                <option value="Santa Bárbara d'Oeste">Santa Bárbara d'Oeste</option>
+                <option value="Nova Odessa">Nova Odessa</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
 
-        <div class="mb-3">
-          <label for="email" class="form-label">E-mail</label>
-          <input type="email" class="form-control" id="email" name="email" autocomplete="email" required>
-        </div>
+        <fieldset class="border rounded p-3 p-md-4 mb-4">
+          <legend class="float-none w-auto px-2 fs-5">O que você quer receber?</legend>
+          <p class="text-muted">Escolha todos os assuntos que interessam.</p>
+          <div class="row g-2">
+            <div class="col-12 col-md-6">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="interessePrevisao" name="interesses" value="previsao">
+                <label class="form-check-label" for="interessePrevisao">Previsão do tempo</label>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="interesseChuva" name="interesses" value="chuva">
+                <label class="form-check-label" for="interesseChuva">Alertas de chuva forte</label>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="interesseTemperatura" name="interesses" value="temperatura">
+                <label class="form-check-label" for="interesseTemperatura">Mudanças de temperatura</label>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="interesseCidades" name="interesses" value="cidades">
+                <label class="form-check-label" for="interesseCidades">Novidades e passeios na cidade</label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
 
-        <div class="mb-4">
-          <label for="cidadeInteresse" class="form-label">Cidade de interesse</label>
-          <select class="form-select" id="cidadeInteresse" name="cidade" required>
-            <option value="" selected disabled>Escolha uma cidade</option>
-            <option value="Americana">Americana</option>
-            <option value="Campinas">Campinas</option>
-            <option value="Piracicaba">Piracicaba</option>
-            <option value="Santa Bárbara d'Oeste">Santa Bárbara d'Oeste</option>
-            <option value="Nova Odessa">Nova Odessa</option>
-          </select>
-        </div>
-
-        <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+        <button type="submit" class="btn btn-primary w-100">Concluir cadastro</button>
       </form>
     </div>
   </div>
